@@ -26,4 +26,8 @@ For example...
 </html>
 ```
 
+...would replace the tokens `{% include inc/head.html %}` with the contents of those files. 
 
+# Motivation
+
+It was quicker to write this than find a good solution to the simple problem I had: how to host a site on a static server (AWS S3 in my case) and use includes to factor out common page elements. 
