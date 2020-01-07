@@ -4,36 +4,13 @@ import os
 from pathlib import Path
 from shutil import copyfile
 import re
-
-# Used by tokeniser
-import random
-import datetime
+from tokeniser import Tokeniser
 
 SRC_ROOT = os.environ.get('SRC_ROOT', 'src')
 DEST_ROOT = os.environ.get('DEST_ROOT', 'dest')
 PROCESS = ['html']
 TOKEN_RE = r'{%\s*(.*?)\s*%}'
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-class Tokeniser:
-    """Tokens such as {% fn args %} will result in calls to methods on
-    this class Tokeniser.fn(args) with returned results replacing the
-    token in the source file.
-
-    """
-
-    def hello(self):
-        return random.choice(["Hello!", "Hi!", "Hoi!"])
-
-    def year(self):
-        return datetime.date.today().year
-
-    def include(self, file):
-        with open(os.path.join(src_dir, file)) as f:
-            return f.read()
-
-TOK = Tokeniser()
+TOK = Tokeniser(SRC_ROOT, DEST_ROOT)
     
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
