@@ -2,10 +2,11 @@
 
 Really simple website preprocessor, enabling you to use includes on a static site. 
 
-The preprocessor expects a single `src` directory, which it scans and then copies the contents 
-to a `dest` directory, preprocessing any HTML files that it finds using the class in `tokenprocessor.py`.
+The preprocessor script expects a `src` directory, which it scans and then copies the contents 
+to a `dest` directory, preprocessing any HTML files using the class in `tokenprocessor.py`. 
+The source directory can contain any combination of files and directories you like. 
 
-For example...
+For example, a file containing these `{% include %}` tokens:
 
 ```
 <!doctype html>
@@ -26,7 +27,16 @@ For example...
 </html>
 ```
 
-...would replace the tokens `{% include inc/head.html %}` with the contents of those files. 
+...would result in those tokens being relpaced with the contents of the specified files. 
+
+Here's the code for include:
+
+```
+    def include(self, file):
+        with open(os.path.join(self.src_root, file)) as f:
+            return f.read()
+```
+
 
 # Motivation
 
