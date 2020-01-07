@@ -2,15 +2,15 @@ import os
 import random
 import datetime
 
-class Tokeniser:
-    """Tokens such as {% fn args %} will result in calls to methods on
-    this class Tokeniser.fn(args) with returned results replacing the
-    token in the source file.
-    """
+class TokenProcessor:
+    """Process a token and return the result. """
 
     def __init__(self, src_root, dest_root):
         self.src_root = src_root
         self.dest_root = dest_root
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # Tokens you can use in your source files
     
     def hello(self):
         return random.choice(["Hello!", "Hi!", "Hoi!"])
@@ -21,4 +21,6 @@ class Tokeniser:
     def include(self, file):
         with open(os.path.join(self.src_dir, file)) as f:
             return f.read()
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

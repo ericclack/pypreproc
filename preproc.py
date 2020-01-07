@@ -4,13 +4,15 @@ import os
 from pathlib import Path
 from shutil import copyfile
 import re
-from tokeniser import Tokeniser
+from token import TokenProcessor
 
 SRC_ROOT = os.environ.get('SRC_ROOT', 'src')
 DEST_ROOT = os.environ.get('DEST_ROOT', 'dest')
 PROCESS = ['html']
+
+# Tokens look like this: {% year %}
 TOKEN_RE = r'{%\s*(.*?)\s*%}'
-TOK = Tokeniser(SRC_ROOT, DEST_ROOT)
+TOK = TokenProcessor(SRC_ROOT, DEST_ROOT)
     
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
