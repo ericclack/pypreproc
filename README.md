@@ -1,5 +1,4 @@
-# pypreproc
-Python website preprocessor
+# pypreproc - Python website preprocessor
 
 Really simple website preprocessor, enabling you to use includes on a static site. 
 
