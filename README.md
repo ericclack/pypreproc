@@ -35,4 +35,4 @@ It was quicker to write this than find a good solution to the simple problem I h
 # Requirements
 
 * Python3
-* `diff` command for validation -- but you could easily remove this bit if required. 
+* `diff` command for validation -- but you could easily remove this bit if you don't want it. 
