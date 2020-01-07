@@ -19,7 +19,7 @@ class TokenProcessor:
         return datetime.date.today().year
 
     def include(self, file):
-        with open(os.path.join(self.src_dir, file)) as f:
+        with open(os.path.join(self.src_root, file)) as f:
             return f.read()
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

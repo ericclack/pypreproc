@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 from shutil import copyfile
 import re
-from token import TokenProcessor
+from tokenprocessor import TokenProcessor
 
 SRC_ROOT = os.environ.get('SRC_ROOT', 'src')
 DEST_ROOT = os.environ.get('DEST_ROOT', 'dest')
