@@ -22,5 +22,9 @@ class TokenProcessor:
         with open(os.path.join(self.src_root, file)) as f:
             return f.read()
 
+    def comment(self, *args):
+        """Remove comments"""
+        return ""
+
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

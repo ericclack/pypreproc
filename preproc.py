@@ -30,16 +30,25 @@ def process_token(matchobj):
     print("\tProcessing: `%s` with args %s" % (fn, args))
 
     try:
-        return str(getattr(TOK, fn)(*args))
+        newcontent = str(getattr(TOK, fn)(*args))
+        # Process any tokens in the newcontent
+        #TODO: watch out for infinite loops!
+        return "\n".join(process_lines(newcontent.splitlines()))
+    
     except AttributeError as e:
         print("ERROR: %s" % e)
         return "<!-- bad token: %s -->" %  matchobj.group(1)
 
+def process_lines(lines):
+    """Gerator that processes lines"""
+    for line in lines:
+        newline = re.sub(TOKEN_RE, process_token, line)
+        yield newline
+    
 def processfile(src_file, dest_file):
     with open(src_file, "r") as f_in:
         with open(dest_file, "w") as f_out:
-            for line in f_in:
-                newline = re.sub(TOKEN_RE, process_token, line)
+            for newline in process_lines(f_in):
                 f_out.write(newline)
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
