@@ -40,7 +40,7 @@ Here's the code for include:
 
 # Tokens
 
-Take a look at the [`tokenprocessor.py`](blob/master/tokenprocessor.py) module to see the supported tags. 
+Take a look at the [`tokenprocessor.py`](tokenprocessor.py) module to see the supported tags. 
 
 # Motivation
 
